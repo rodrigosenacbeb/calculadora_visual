@@ -1,0 +1,9 @@
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\bin\Debug\calculadora_visual.exe.config
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\bin\Debug\calculadora_visual.exe
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\bin\Debug\calculadora_visual.pdb
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\obj\Debug\calculadora_visual.csprojAssemblyReference.cache
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\obj\Debug\calculadora_visual.Form1.resources
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\obj\Debug\calculadora_visual.Properties.Resources.resources
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\obj\Debug\calculadora_visual.csproj.GenerateResource.cache
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\obj\Debug\calculadora_visual.exe
+C:\Users\rodrigo.gsantana1\Desktop\aula_prog\calculadora_visual\calculadora_visual\obj\Debug\calculadora_visual.pdb
