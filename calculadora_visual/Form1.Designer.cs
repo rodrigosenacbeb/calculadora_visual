@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnZero = new System.Windows.Forms.Button();
             this.btnUm = new System.Windows.Forms.Button();
             this.btnDois = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.txtDisplay = new System.Windows.Forms.TextBox();
             this.btnResultado = new System.Windows.Forms.Button();
             this.btnApagar = new System.Windows.Forms.Button();
+            this.lblValor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnZero
@@ -272,6 +274,7 @@
             this.btnVirgula.TabIndex = 14;
             this.btnVirgula.Text = ",";
             this.btnVirgula.UseVisualStyleBackColor = false;
+            this.btnVirgula.Click += new System.EventHandler(this.btnVirgula_Click);
             // 
             // btnLimpar
             // 
@@ -331,12 +334,24 @@
             this.btnApagar.UseVisualStyleBackColor = false;
             this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValor.ForeColor = System.Drawing.Color.Gray;
+            this.lblValor.Location = new System.Drawing.Point(3, 3);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(18, 20);
+            this.lblValor.TabIndex = 19;
+            this.lblValor.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(399, 474);
+            this.Controls.Add(this.lblValor);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.btnResultado);
             this.Controls.Add(this.txtDisplay);
@@ -357,6 +372,7 @@
             this.Controls.Add(this.btnUm);
             this.Controls.Add(this.btnZero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -387,6 +403,7 @@
         private System.Windows.Forms.TextBox txtDisplay;
         private System.Windows.Forms.Button btnResultado;
         private System.Windows.Forms.Button btnApagar;
+        private System.Windows.Forms.Label lblValor;
     }
 }
 

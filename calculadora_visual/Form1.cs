@@ -5,12 +5,8 @@ namespace calculadora_visual
 {
     public partial class Form1 : Form
     {
-        bool primeiroNumero = true;
-        bool anterior = false;
-        bool primeiraOperacao = true;
-        double valorAnterior = 0;
-        double valorAtual = 0;
-        string ultimaOperacao;
+        string operacao = "";
+        bool operacaoSelecionada = false;
 
 
         public Form1()
@@ -71,7 +67,8 @@ namespace calculadora_visual
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtDisplay.Text = "0";
-            primeiroNumero = true;
+            lblValor.Text = "0";
+            operacao = "";
         }
 
         private void btnApagar_Click(object sender, EventArgs e)
@@ -82,92 +79,47 @@ namespace calculadora_visual
                 if (txtDisplay.Text.Length == 0)
                 {
                     txtDisplay.Text = "0";
-                    primeiroNumero = true;
+                    lblValor.Text = "0";
+                    operacao = "";
                 }
             }
         }
 
         void Input(string valor)
         {
-            if (primeiroNumero)
-            {
+            if (txtDisplay.Text == "0" || operacaoSelecionada == true)
                 txtDisplay.Text = "";
-                primeiroNumero = false;
-            }
 
+            operacaoSelecionada = false;
             txtDisplay.Text += valor;
         }
 
         void Operacao(string operador)
         {
-            if (operador == "+")
-            {
-                if (!anterior)
-                {
-                    valorAnterior = Convert.ToDouble(txtDisplay.Text);
-                    anterior = !anterior;
-                }
-                else
-                {
-                    anterior = !anterior;
-                }
+            operacaoSelecionada = true;
 
-
-                if (primeiraOperacao)
-                {
-                    txtDisplay.Text = valorAnterior.ToString();
-                    primeiraOperacao = false;
-                }
-                else
-                {
-                    valorAtual = Convert.ToDouble(txtDisplay.Text) + valorAnterior;
-                    txtDisplay.Text = valorAtual.ToString();
-                }
-
-                
-                
-                ultimaOperacao = "+";
-                valorAtual = 0;
-            }
-            else if (operador == "-")
+            switch (operacao)
             {
-                txtDisplay.Text = valorAnterior.ToString();
-                valorAnterior -= Convert.ToDouble(txtDisplay.Text);
-                ultimaOperacao = "-";                
-                valorAnterior = 0;
-            }
-            else if (operador == "*")
-            {
-                txtDisplay.Text = valorAnterior.ToString();
-                valorAnterior *= Convert.ToDouble(txtDisplay.Text);
-                ultimaOperacao = "*";                               
-                valorAnterior = 0;
-            }
-            else if (operador == "/")
-            {
-                txtDisplay.Text = valorAnterior.ToString();
-                valorAnterior /= Convert.ToDouble(txtDisplay.Text);
-                ultimaOperacao = "/";               
-                valorAnterior = 0;
-            }
-            else if (operador == "=")
-            {
-                if (ultimaOperacao == "+")
-                    valorAnterior += Convert.ToDouble(txtDisplay.Text);
-                else if (ultimaOperacao == "-")
-                    valorAnterior -= Convert.ToDouble(txtDisplay.Text);
-                else if (ultimaOperacao == "*")
-                    valorAnterior *= Convert.ToDouble(txtDisplay.Text);
-                else if (ultimaOperacao == "/")
-                    valorAnterior /= Convert.ToDouble(txtDisplay.Text);
-
-                txtDisplay.Text = valorAnterior.ToString();
-                valorAnterior = 0;
+                case "+":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) + Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                case "-":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) - Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                case "*":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) * Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                case "/":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) / Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                default:
+                    lblValor.Text = txtDisplay.Text;
+                    break;
             }
 
-            primeiroNumero = true;
+            operacao = operador;
         }
-               
+
 
         private void btnAdicao_Click(object sender, EventArgs e)
         {
@@ -176,7 +128,24 @@ namespace calculadora_visual
 
         private void btnResultado_Click(object sender, EventArgs e)
         {
-            Operacao("=");
+            switch (operacao)
+            {
+                case "+":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) + Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                case "-":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) - Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                case "*":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) * Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+                case "/":
+                    lblValor.Text = (Convert.ToDouble(lblValor.Text) / Convert.ToDouble(txtDisplay.Text)).ToString();
+                    break;
+            }
+
+            txtDisplay.Text = lblValor.Text;
+            lblValor.Text = "0";
         }
 
         private void btnSubtracao_Click(object sender, EventArgs e)
@@ -192,6 +161,17 @@ namespace calculadora_visual
         private void btnDivisao_Click(object sender, EventArgs e)
         {
             Operacao("/");
+        }
+
+        private void btnVirgula_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text.IndexOf(",") <= 0)
+            {
+                if (txtDisplay.Text == "0")
+                    Input("0,");
+                else
+                    Input(",");
+            }
         }
     }
 }
